@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, EventEmitter } from '@angular/core'
 
 import { LoggingService } from './logging.service'
 
@@ -19,6 +19,8 @@ export class AccountsService {
         }
       ];
     
+      statusUpdate = new EventEmitter<string>();
+
       onAccountAdded(name: string, status: string) {
         this.accounts.push({name: name, status: status});
         console.log('A server status changed, new status: ' + status);

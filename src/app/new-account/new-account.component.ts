@@ -18,5 +18,8 @@ export class NewAccountComponent {
     // console.log('A server status changed, new status: ' + accountStatus);
     this.accountsService.onAccountAdded(accountName, accountStatus);
     // this.loggingService.logStatusChange(accountStatus);
+    this.accountsService.statusUpdate.subscribe(
+      (status: string) => alert("new status :" + status)
+    );
   }
 }
